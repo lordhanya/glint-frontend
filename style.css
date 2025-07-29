@@ -3,11 +3,11 @@ body {
   background: #1e1e2f;
   padding: 20px;
   margin: 0;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  /* min-height: 100vh;*/
 }
 
 body::-webkit-scrollbar {
@@ -31,7 +31,7 @@ body::-webkit-scrollbar-track {
     0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 500px;
-  margin-top: 10vh;
+  margin-top: 6vh;
 }
 
 .header {
