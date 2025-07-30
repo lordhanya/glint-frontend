@@ -100,8 +100,8 @@ header span {
   content: "";
   display: block;
   height: 1px;
-  background: linear-gradient(to right, #00adb5, transparent);
-  margin-top: 10px;
+  background: linear-gradient(to right, hwb(180 31% 68%), transparent);
+  margin-top: 0;
 }
 
 #chat {
