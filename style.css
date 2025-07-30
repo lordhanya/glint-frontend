@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -19,7 +20,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #121212;
+  background: #000;
   border-bottom: 1px solid #2a2a2e;
 }
 
@@ -86,6 +87,7 @@ header span {
 }
 
 #chat {
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -142,9 +144,22 @@ header span {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
   #chat {
+    flex: 1;
+    overflow-y: auto;
     padding: 10px;
-    max-height: 70vh;
+    max-height: 65vh;
   }
 
   .message {
@@ -153,18 +168,25 @@ header span {
   }
 
   .input-section {
+    display: flex;
     flex-direction: column;
     padding: 10px;
+    gap: 10px;
+    background-color: #1e1e2e;
+    border-top: 1px solid #333;
   }
 
   .input-section input {
     width: 100%;
     font-size: 15px;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   .input-section button {
     width: 100%;
     font-size: 15px;
-    margin-top: 8px;
+    padding: 10px;
   }
 }
+
