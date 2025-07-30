@@ -15,7 +15,6 @@ body {
   position: relative;
 }
 
-
 header {
   padding: 20px 40px;
   display: flex;
@@ -31,7 +30,6 @@ header h1 {
   color: #00fff7;
   font-family: "Major Mono Display", monospace;
   font-weight: 400;
-  font-style: normal;
 }
 
 header span {
@@ -65,11 +63,26 @@ header span {
   overflow-y: auto;
 }
 
-.chat-output {
+#chat {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
   overflow-y: auto;
-  padding-bottom: 10px;
-  font-size: 1rem;
+}
+
+#chat::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat::-webkit-scrollbar-thumb {
+  background-color: #00fff7;
+  border-radius: 10px;
+}
+
+#chat::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 .message {
@@ -104,35 +117,14 @@ header span {
   margin-top: 0;
 }
 
-#chat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  gap: 10px;
-  overflow-y: auto;
-}
-
-#chat::-webkit-scrollbar {
-  width: 6px;
-}
-
-#chat::-webkit-scrollbar-thumb {
-  background-color: #00fff7;
-  border-radius: 10px;
-}
-
-#chat::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.chat-input {
+.chat-input,
+.chat-section {
   display: flex;
   gap: 10px;
-  padding-top: 20px;
 }
 
-.chat-input input {
+.chat-input input,
+.chat-section input {
   flex: 1;
   padding: 14px 16px;
   border-radius: 25px;
@@ -142,11 +134,13 @@ header span {
   font-size: 1rem;
 }
 
-.chat-input input::placeholder {
+.chat-input input::placeholder,
+.chat-section input::placeholder {
   color: #888;
 }
 
-.chat-input button {
+.chat-input button,
+.chat-section button {
   background: #00adb5;
   color: white;
   border: none;
@@ -157,29 +151,23 @@ header span {
   transition: 0.2s ease-in-out;
 }
 
-.chat-input button:hover {
+.chat-input button:hover,
+.chat-section button:hover {
   background: #00ced1;
 }
 
-@media (max-width: 768px) {
-  html,
-  body {
-    height: 100%;
-  }
 
-  body {
+@media (max-width: 768px) {
+  html, body {
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 0;
   }
 
   #chat {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-    max-height: calc(100vh - 120px);
-    margin-bottom: 70px; 
+    max-height: calc(100vh - 120px); 
+    margin-bottom: 70px;
   }
 
   .message {
@@ -192,25 +180,19 @@ header span {
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;
-    flex-direction: row;
     padding: 10px;
-    gap: 10px;
     background-color: #1e1e2e;
     border-top: 1px solid #333;
     z-index: 1000;
   }
 
   .chat-section input {
-    width: 100%;
     font-size: 15px;
     padding: 10px;
-    box-sizing: border-box;
   }
 
   .chat-section button {
-    width: 100%;
     font-size: 15px;
-    padding: 10px;
+    padding: 10px 16px;
   }
 }
