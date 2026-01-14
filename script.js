@@ -1,3 +1,5 @@
+alert('Glint can be slow sometimes as it is just a prototype!')
+
 function addMessage(sender, text) {
   const chat = document.getElementById("chat");
   const msg = document.createElement("div");
