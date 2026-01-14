@@ -62,7 +62,8 @@ function sendMsg() {
       addMessage("bot", data.reply);
     })
     .catch(() => {
-      addMessage("bot", "Error communicating with server.");
+      addMessage("bot", "🤖 Model busy, retrying..."); 
+      setTimeout(sendMsg, 3000);
     });
 }
 
