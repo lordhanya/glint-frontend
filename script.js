@@ -1,4 +1,10 @@
-alert('Glint can be slow sometimes as it is just a prototype!')
+Swal.fire({
+  icon: 'info',
+  text: 'Glint can be slow sometimes as it is just a prototype!',
+  confirmButtonText: 'Got it!',
+  timer: 8000,
+  timerProgressBar: true
+});
 
 function addMessage(sender, text) {
   const chat = document.getElementById("chat");
