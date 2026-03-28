@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Glint AI 🤖
 
 > A modern AI chatbot powered by Gemini 2.5 Flash
