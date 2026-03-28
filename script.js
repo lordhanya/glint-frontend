@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const API_URL = 'http://localhost:5000/chat';
 
 const elements = {
@@ -24,7 +23,7 @@ const userAvatar = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.or
     <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
-const aiAvatar = `<img src="G.png" alt="Glint" style="width:20px;height:20px;object-fit:contain;" />`;
+const aiAvatar = `<img src="G.png" alt="Glint" style="width:20px;height:20px;object-fit:contain;border-radius:4px;" />`;
 
 const copyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -59,9 +58,7 @@ function showPrototypeAlert() {
         confirmButtonText: 'Got it!',
         confirmButtonColor: '#A855F7',
         allowOutsideClick: false,
-        backdrop: `
-            rgba(0,0,0,0.8)
-        `,
+        backdrop: `rgba(0,0,0,0.8)`,
         customClass: {
             popup: 'prototype-alert-popup',
             title: 'prototype-alert-title'
@@ -310,83 +307,3 @@ function showError(message) {
 }
 
 init();
-=======
-Swal.fire({
-  icon: 'info',
-  text: 'Glint can be slow sometimes as it is just a prototype!',
-  confirmButtonText: 'Got it!',
-  timer: 8000,
-  timerProgressBar: true
-});
-
-function addMessage(sender, text) {
-  const chat = document.getElementById("chat");
-  const msg = document.createElement("div");
-  msg.className = "message " + sender;
-
-  let formattedText = (sender === "user" ? "" : "") + text;
-
-  formattedText = formattedText.replace(
-    /\*\*(.*?)\*\*/g,
-    "<strong>$1</strong>"
-  );
-
-  let lines = formattedText.split("\n");
-
-  let inList = false;
-  let result = "";
-
-  for (let line of lines) {
-    let trimmed = line.trim();
-    if (trimmed.startsWith("* ")) {
-      let content = trimmed.substring(2).trim();
-      if (content !== "") {
-        if (!inList) {
-          result += "<ul>";
-          inList = true;
-        }
-        result += `<li>${content}</li>`;
-      }
-    } else {
-      if (inList) {
-        result += "</ul>";
-        inList = false;
-      }
-      result += trimmed + "<br>";
-    }
-  }
-
-  if (inList) result += "</ul>";
-
-  msg.innerHTML = result;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
-}
-
-function sendMsg() {
-  const input = document.getElementById("userInput");
-  const text = input.value.trim();
-  if (!text) return;
-
-  addMessage("user", text);
-  input.value = "";
-
-  fetch("https://glint-backend-7d4a.onrender.com/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: text }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      addMessage("bot", data.reply);
-    })
-    .catch(() => {
-      addMessage("bot", "🤖 Model busy, retrying..."); 
-      setTimeout(sendMsg, 3000);
-    });
-}
-
-document.getElementById("userInput").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") sendMsg();
-});
->>>>>>> 37fbb5b51b85d47413055c53011873f48ebe06fb
