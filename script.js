@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/chat';
+const API_URL = 'https://glint-backend-7d4a.onrender.com/chat';
 
 const elements = {
     sidebar: document.getElementById('sidebar'),
